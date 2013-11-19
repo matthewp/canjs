@@ -162,4 +162,29 @@
 		});
 		new Foo().dude(true);
 	});
+
+	test("Creating with getters/setters", function(){
+		// If browsers don't support Object.getOwnPropertyDescriptor then don't even try.
+		if(!Object.getOwnPropertyDescriptor) {
+			ok(true, "Not supported by the browser");
+			return;
+		}
+
+		var obj = {};
+		Object.defineProperty(obj, "foo", {
+			get: function() {
+				return this._val || 0;
+			},
+			set: function(val) {
+				this._val = val + 1;
+			}
+		});
+
+		var Animal = can.Construct.extend(obj);
+		var dog = new Animal();
+
+		equal(dog.foo, 0, "Initial value is 0");
+		dog.foo = 5;
+		equal(dog.foo, 6, "After setting a value, value is that value plus 1");
+	});
 })();
