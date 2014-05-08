@@ -1,6 +1,8 @@
 steal('can/util', "can/view",function (can) {
 
-	var selectsCommentNodes = (function(){
+	var doc = typeof document !== "undefined" ? document: null;
+
+	var selectsCommentNodes = doc && (function(){
 		return can.$(document.createComment('~')).length === 1;
 	})();
 
