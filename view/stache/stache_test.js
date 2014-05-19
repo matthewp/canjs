@@ -3439,4 +3439,18 @@ steal("can/view/stache", "can/view","can/test","can/view/mustache/spec/specs",fu
 		equal(can.$("my-tag").length, 1, "Element created in default namespace");
 	});
 
+	test("Using {{else}} inside of an attribute (#974)", function(){
+		var team = new can.Map({
+			color: null
+		});
+
+		var frag = can.stache("<div class='{{#if color}}{{color}}{{else}}red{{/if}}'></div>")(team);
+
+		equal(frag.childNodes[0].className, "red", "Context is set correctly for the falsy value");
+		
+		team.attr('color', 'blue');
+
+		equal(frag.childNodes[0].className, "blue", "Context changed to correct value for truthy value");
+	});
+
 });
