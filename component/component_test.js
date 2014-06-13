@@ -1286,4 +1286,19 @@ steal("can/component", "can/view/stache", function () {
 		equal(frag.childNodes[0].innerHTML, '', 'child component is removed');
 	});
 
+	test("compute on the Component scope", function() {
+		can.Component.extend({
+			tag: 'fancy-div',
+			template: '<div>{{thing}}</div>',
+			scope: {
+				thing: can.compute(false)
+			}
+		});
+
+		var template = can.stache('<fancy-div></fancy-div>');
+		var frag = template({});
+
+		equal(frag.childNodes[0].innerHTML, 'false', 'element contains the compute value');
+	});
+
 });
