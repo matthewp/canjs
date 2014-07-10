@@ -207,6 +207,16 @@
 			"type": "core",
 			"isDefault": true,
 			"hidden": true
+		},
+		"can/view/stache/system.js": {
+			"name": "can.view.stache.system",
+			"type": "loader",
+			"isDefault": true
+		},
+		"can/util/domless": {
+			"name": "can.util.domless",
+			"type": "loader",
+			"isDefault": true
 		}
 	},
 	"types": {
