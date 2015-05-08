@@ -1,8 +1,8 @@
 {
-	"name": "can",
+	"name": "mcan",
 	"title": "CanJS",
 	"description": "MIT-licensed, client-side, JavaScript framework that makes building rich web applications easy.",
-	"version": "2.3.0-pre.0",
+	"version": "2.3.0",
 	"author": {
 		"name": "Bitovi",
 		"email": "contact@bitovi.com",
